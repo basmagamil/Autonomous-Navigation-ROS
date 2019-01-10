@@ -2,8 +2,8 @@
 Simulation of a robot that is capable of autonomous navigation of a given map while avoiding collision with statics obstacles.
 
 ## How to Run
-1- Add "betabot" package in your home/catkin_ws/src path<br/>
-2- Type the following command in the terminal:<br/>
+1- Add "betabot" package in your home/catkin_ws/src path.<br/>
+2- Type the following commands in the terminal:<br/>
 `source ~/catkin_ws/devel/setup.bash`<br/>
 `roslaunch betabot gazebo.launch`<br/>
 3- Open a new terminal and type:<br/>

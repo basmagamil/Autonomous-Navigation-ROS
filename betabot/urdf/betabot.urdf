@@ -1,0 +1,324 @@
+<robot
+  name="betabot">
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0028172 0.021241 -0.00065037"
+        rpy="0 0 0" />
+      <mass
+        value="0.73618" />
+      <inertia
+        ixx="0.004406"
+        ixy="2.9581E-05"
+        ixz="-9.8203E-06"
+        iyy="0.0073252"
+        iyz="-1.6737E-05"
+        izz="0.003796" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://betabot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://betabot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Right_wheel_Link">
+    <inertial>
+      <origin
+        xyz="5.80255419010563E-05 -0.000851425187204456 0.0156832260554452"
+        rpy="0 0 0" />
+      <mass
+        value="0.0419257425699615" />
+      <inertia
+        ixx="1.84581569673829E-05"
+        ixy="-7.45289443414032E-10"
+        ixz="8.21098290608974E-10"
+        iyy="1.84732700136559E-05"
+        iyz="-1.33510460154613E-08"
+        izz="3.09388986788115E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://betabot/meshes/Right_wheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://betabot/meshes/Right_wheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.089032 0 -0.018"
+      rpy="1.5708 0.1854 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_wheel_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_wheel_Link">
+    <inertial>
+      <origin
+        xyz="5.80255418201597E-05 -0.000851425187481221 0.0156832260562796"
+        rpy="0 0 0" />
+      <mass
+        value="0.0419257425723193" />
+      <inertia
+        ixx="1.84581569678085E-05"
+        ixy="-7.45289632456328E-10"
+        ixz="8.21098334412829E-10"
+        iyy="1.84732700143556E-05"
+        iyz="-1.33510459088055E-08"
+        izz="3.09388986790701E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://betabot/meshes/Left_wheel_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://betabot/meshes/Left_wheel_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_wheel_Joint"
+    type="continuous">
+    <origin
+      xyz="0.089032 0 -0.018"
+      rpy="1.5708 0.29875 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_wheel_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="hokuyo_Link">
+    <inertial>
+      <origin
+        xyz="-0.00683730334232981 0.0042243811459572 0.0318215649057513"
+        rpy="0 0 0" />
+      <mass
+        value="0.658662700171593" />
+      <inertia
+        ixx="0.000417773509609781"
+        ixy="9.16473672342607E-07"
+        ixz="-3.46682253232144E-07"
+        iyy="0.00313393163185893"
+        iyz="-3.61397597814002E-06"
+        izz="0.0031119551403051" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0.01"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0.01"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hokuyo_Joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0.06625"
+      rpy="-6.123E-17 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="hokuyo_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>Left_wheel_Joint</leftJoint>
+      <rightJoint>Right_wheel_Joint</rightJoint>
+      <wheelSeparation>0.5380</wheelSeparation>
+      <wheelDiameter>0.2410</wheelDiameter>
+      <torque>20</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+  <gazebo>
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+      <alwaysOn>true</alwaysOn>
+      <bodyName>base_link</bodyName>
+      <topicName>imu</topicName>
+      <serviceName>imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>20.0</updateRate>
+    </plugin>
+  </gazebo>
+  <gazebo reference="hokuyo_Link">
+    <sensor type="camera" name="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>/camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>hokuyo_Link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+ <!-- hokuyo -->
+  <gazebo reference="hokuyo_Link">
+    <!--sensor type="gpu_ray" name="head_hokuyo_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>True</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+        <topicName>/betabot/laser/scan</topicName>
+        <frameName>hokuyo_Link</frameName>
+      </plugin>
+    </sensor-->
+    <sensor type="ray" name="laser">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>True</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/scan</topicName>
+        <frameName>hokuyo_Link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+</robot>
